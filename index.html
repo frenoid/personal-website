@@ -1,0 +1,428 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Norman Lim | VP @ DBS Bank | Agentic AI & Platform Engineering</title>
+    <style>
+        :root {
+            --primary: #0047AB; /* Deep Blue */
+            --accent: #FF5733; /* Orange */
+            --bg-dark: #0A0A0A; /* Near Black */
+            --bg-light: #1A1A1A; /* Dark Grey */
+            --text-main: #FFFFFF;
+            --text-muted: #BBBBBB;
+            --font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: var(--font-family);
+            background-color: var(--bg-dark);
+            color: var(--text-main);
+            line-height: 1.6;
+        }
+
+        /* Container & Grid */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        section {
+            padding: 4rem 0;
+            border-bottom: 1px solid #333;
+        }
+
+        /* Typography */
+        h1 {
+            font-size: 3.5rem;
+            font-weight: 800;
+            margin-bottom: 1rem;
+        }
+
+        h2 {
+            font-size: 2.2rem;
+            font-weight: 700;
+            color: var(--primary);
+            margin-bottom: 2rem;
+            border-left: 4px solid var(--primary);
+            padding-left: 1rem;
+        }
+
+        h3 {
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        p {
+            margin-bottom: 1rem;
+            color: var(--text-muted);
+        }
+
+        strong {
+            color: var(--text-main);
+        }
+
+        ul {
+            list-style-type: disc;
+            margin-left: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: color 0.3s;
+        }
+
+        a:hover {
+            color: var(--accent);
+        }
+
+        /* Header & Nav */
+        header {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(10, 10, 10, 0.95);
+            z-index: 1000;
+            backdrop-filter: blur(10px);
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 0;
+        }
+
+        .logo {
+            font-weight: 800;
+            font-size: 1.5rem;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+        }
+
+        /* Hero Section */
+        .hero {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10rem 0 6rem 0;
+            gap: 4rem;
+        }
+
+        .hero-text {
+            flex: 1;
+        }
+
+        .job-title {
+            font-size: 1.25rem;
+            color: var(--accent);
+            margin-bottom: 1.5rem;
+        }
+
+        .hero-photo {
+            flex: 0 0 300px;
+            height: 300px;
+            background-image: url('assets/portrait.jpg');
+            background-size: cover;
+            background-position: top center;
+            border-radius: 50%;
+            border: 5px solid var(--primary);
+            box-shadow: 0 0 30px rgba(0, 71, 171, 0.5);
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 0.75rem 2rem;
+            background-color: var(--primary);
+            border-radius: 5px;
+            font-weight: 600;
+            margin-top: 1rem;
+        }
+
+        .btn:hover {
+            background-color: #003366;
+        }
+
+        /* Sections: Generic Cards */
+        .card-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .card {
+            background-color: var(--bg-light);
+            padding: 2rem;
+            border-radius: 10px;
+            border: 1px solid #333;
+            transition: border-color 0.3s, transform 0.3s ease;
+        }
+
+        .card:hover {
+            border-color: var(--primary);
+        }
+
+        /* Experience Section */
+        .experience-item {
+            margin-bottom: 2rem;
+        }
+
+        .experience-item h3 {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 0.25rem;
+        }
+
+        .company-role {
+            font-weight: 600;
+        }
+
+        .date {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+        }
+
+        .experience-details {
+            margin-top: 1rem;
+        }
+
+        /* Writing & Achievements */
+        .writing-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+        }
+
+        .writing-card {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            padding: 1.5rem;
+            overflow: hidden;
+        }
+
+        .writing-card-img-wrapper {
+            width: 100%;
+            height: 180px;
+            overflow: hidden;
+            border-radius: 6px;
+            background-color: #000;
+        }
+
+        .writing-card-img-wrapper img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.4s ease;
+        }
+
+        .writing-card:hover .writing-card-img-wrapper img {
+            transform: scale(1.05);
+        }
+
+        /* Footer */
+        footer {
+            padding: 3rem 0;
+            background-color: var(--bg-light);
+            text-align: center;
+            border-top: 1px solid #333;
+        }
+
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 3rem;
+            margin-bottom: 1.5rem;
+        }
+
+        @media (max-width: 900px) {
+            .hero {
+                flex-direction: column-reverse;
+                text-align: center;
+            }
+            .hero-photo {
+                margin-bottom: 2rem;
+            }
+            .nav-links {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="container">
+            <nav>
+                <div class="logo">NORMAN LIM</div>
+                <div class="nav-links">
+                    <a href="#about">About</a>
+                    <a href="#skills">Skills</a>
+                    <a href="#experience">Experience</a>
+                    <a href="#writing">Writing</a>
+                    <a href="#achievements">Achievements</a>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <main class="container">
+        <section class="hero" id="about">
+            <div class="hero-text">
+                <h1>Norman Lim</h1>
+                <p class="job-title">VP @ DBS Bank | Agentic AI, Platform Engineering & DevOps Leader</p>
+                <p>Technical expert with over 10 years of experience leading data platform teams and building containerized big data platforms. Specialist in AI, Platform Engineering, and DevOps, equally at home with on-premise infrastructure as with public cloud providers.</p>
+                <a href="https://www.linkedin.com/in/norman-lim-600a83118/" target="_blank" class="btn">Connect on LinkedIn</a>
+                <a href="https://github.com/frenoid" target="_blank" class="btn">View GitHub</a>
+            </div>
+            <div class="hero-photo"></div>
+        </section>
+
+        <section id="skills">
+            <h2>Core Specializations & Skills</h2>
+            <p>Certified Kubernetes Administrator (CKA), Application Developer (CKAD), and Security Specialist (CKS), plus AWS Certified Solutions Architect - Professional.</p>
+            <div class="card-grid">
+                <div class="card">
+                    <h3>AI & Machine Learning</h3>
+                    <p>Agentic AI, Generative AI, MLOps, LLMOps, MCP Servers, Dify Productionization, RAG Apps (LangChain/LangGraph), Model Deployment (llama-cpp, vLLM).</p>
+                </div>
+                <div class="card">
+                    <h3>Platform & Containerization</h3>
+                    <p>Platform Engineering, Kubernetes Cluster Administration, OpenShift Upgrades, Air-Gapped Environments, ArgoCD (GitOps), Helm, Kustomize, Ray Serve, Quay Registry.</p>
+                </div>
+                <div class="card">
+                    <h3>Infrastructure & DevOps</h3>
+                    <p>DevOps Leadership, CI/CD (Jenkins), Cloud Migration (AWS, Azure, GCP GKE), Cost Optimisation, Disaster Recovery (Kanister, Kasten), Terraform.</p>
+                </div>
+                <div class="card">
+                    <h3>Data Engineering</h3>
+                    <p>Spark (Scala, Python), Trino/Presto, Hive, Hadoop, Data Lake Cataloging (Alation), Query Scheduling.</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="experience">
+            <h2>Work Experience</h2>
+            <div class="experience-list">
+                <div class="experience-item">
+                    <h3><span class="company-role">DBS Bank | Vice President, Platform Engineer</span> <span class="date">Nov 2022 – Present</span></h3>
+                    <ul>
+                        <li>Building scalable AI and Machine Learning platforms on Kubernetes using GitOps.</li>
+                        <li>Productionized Dify, a low-code AI dev platform, for over 900 users.</li>
+                        <li>Automated LLM deployment using Jenkins, Argo Workflows, and JFrog Artifactory.</li>
+                        <li>Developed a Retrieval-Augmented Generation (RAG) app for Confluence search.</li>
+                        <li>Optimized GPU costs and utilization using llama-cpp and vLLM.</li>
+                        <li>Led OpenShift cluster upgrades in air-gapped environments.</li>
+                        <li>Built an observability and chargeback solution using Thanos and Prometheus.</li>
+                    </ul>
+                </div>
+                <div class="experience-item">
+                    <h3><span class="company-role">Versent | Senior Engineer</span> <span class="date">May 2022 – Nov 2022</span></h3>
+                    <ul>
+                        <li>Data, Cloud, and Containerization Specialist.</li>
+                        <li>Projects with DBS (Data Platform), Bank of Singapore (NLP), and Kyowa Kirin (OCR).</li>
+                    </ul>
+                </div>
+                <div class="experience-item">
+                    <h3><span class="company-role">Accenture | Data Engineering Consultant</span> <span class="date">Apr 2021 – May 2022</span></h3>
+                    <ul>
+                        <li>Expert in Spark, Trino, Hive, and Hadoop.</li>
+                        <li>Deployed Airflow using Kubernetes and Helm on EKS for Standard Chartered.</li>
+                        <li>Designed app data models and pipelines for Julius Baer.</li>
+                        <li>Created Airflow POC and drove DevOps adoption at Singapore Airlines.</li>
+                    </ul>
+                </div>
+                <div class="experience-item">
+                    <h3><span class="company-role">Grab | Data Engineering Lead</span> <span class="date">Jun 2017 – Apr 2021</span></h3>
+                    <ul>
+                        <li>Managed the 4-person Query Platform team. Technical lead for in-house Presto SQL scheduler, supporting 200 daily active users.</li>
+                        <li>Provisioned Grab's cloud infrastructure, including Spark and Presto on EMR, on AWS using Terraform.</li>
+                        <li>Migrated Presto jobs to Athena and Qubole, saving the company $100,000/mo and $450,000/mo respectively.</li>
+                        <li>Wrote and maintained billion-record Spark pipelines in Scala.</li>
+                        <li>Administered Grab's Tableau infrastructure, maintaining >99.9% uptime for 2000 users.</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <section id="writing">
+            <h2>Writing & Thought Leadership</h2>
+            <div class="writing-grid">
+                <a href="https://www.linkedin.com/pulse/how-i-built-mcp-server-10-solved-enterprise-norman-lim-jvk1c/" target="_blank" class="card writing-card">
+                    <div class="writing-card-img-wrapper">
+                        <img src="assets/build-mcp-server.png" alt="How I Built an MCP Server for $10 and Solved Enterprise Observability">
+                    </div>
+                    <h3>How I Built an MCP Server for $10 and Solved Enterprise Observability</h3>
+                    <p>Building a Model Context Protocol (MCP) server for Kubernetes schedulers to bridge enterprise visibility gaps and provide natural language cluster interfaces for under $10.</p>
+                </a>
+                <a href="https://www.linkedin.com/pulse/why-ai-agents-need-brakes-just-faster-engines-norman-lim-lqsbc/" target="_blank" class="card writing-card">
+                    <div class="writing-card-img-wrapper">
+                        <img src="assets/ai-agents-need-brakes.png" alt="Why AI Agents Need Brakes, Not Just Faster Engines">
+                    </div>
+                    <h3>Why AI Agents Need Brakes, Not Just Faster Engines</h3>
+                    <p>In high-stakes industries like finance, healthcare, and defense, speed is useless if you fly off a cliff. In the enterprise world, trust is the ultimate good.</p>
+                </a>
+                <a href="https://www.linkedin.com/pulse/day-ai-stopped-why-rented-intelligence-corporate-risk-norman-lim-kq3ic/" target="_blank" class="card writing-card">
+                    <div class="writing-card-img-wrapper">
+                        <img src="assets/day-ai-stopped.png" alt="The Day the AI Stopped: Why Rented Intelligence Is A Corporate Risk">
+                    </div>
+                    <h3>The Day the AI Stopped: Why "Rented Intelligence" Is A Corporate Risk</h3>
+                    <p>Tech leaders around the world learned a harsh lesson: in the era of Artificial Intelligence, if you do not own the infrastructure, you do not own your business.</p>
+                </a>
+                <a href="https://www.linkedin.com/pulse/from-paragraphs-graphs-architecting-memory-layer-autonomous-lim-dlg3c/" target="_blank" class="card writing-card">
+                    <div class="writing-card-img-wrapper">
+                        <img src="assets/paragraphs-graphs.png" alt="From Paragraphs to Graphs: Architecting the Memory Layer for Autonomous Agents">
+                    </div>
+                    <h3>From Paragraphs to Graphs: Architecting the Memory Layer for Autonomous Agents</h3>
+                    <p>End of the Chatbot Era. When you force complex document trees, relational network topologies, or quantitative financial tables into a uniform text-chunking engine, you flatten and destroy their inherent semantics.</p>
+                </a>
+            </div>
+        </section>
+
+        <section id="achievements">
+            <h2>Achievements & Education</h2>
+            <div class="card-grid">
+                <div class="card">
+                    <h3>Awards</h3>
+                    <ul>
+                        <li>Dean’s List, AY2014-15, Semester 1</li>
+                        <li>Dean's List, AY2012-13, Semester 1</li>
+                    </ul>
+                </div>
+                <div class="card">
+                    <h3>Education</h3>
+                    <ul>
+                        <li>Master of Technology, Computer Software Engineering | NUS (2021-2023)</li>
+                        <li>Bachelor's degree, Quantitative Economics | NUS (2012-2016)</li>
+                        <li>Certificate in Social Sciences and the Humanities, Economics | Sciences Po (2015)</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-links">
+                <a href="https://www.linkedin.com/in/norman-lim-600a83118/" target="_blank">LinkedIn Profile</a>
+                <a href="https://github.com/frenoid" target="_blank">GitHub Profile</a>
+            </div>
+            <p>&copy; 2026 Norman Lim. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+</body>
+</html>
